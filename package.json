@@ -1,0 +1,23 @@
+{
+  "name": "intro-to-programming-w-js-launch-school",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Dallas-Alfonso/Launch_School_Int._To_Programming_JS.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Dallas-Alfonso/Launch_School_Int._To_Programming_JS/issues"
+  },
+  "homepage": "https://github.com/Dallas-Alfonso/Launch_School_Int._To_Programming_JS#readme",
+  "dependencies": {
+    "readline-sync": "^1.4.10"
+  }
+}
