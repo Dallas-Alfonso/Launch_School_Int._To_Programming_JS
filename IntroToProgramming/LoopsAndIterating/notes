@@ -1,0 +1,15 @@
+The pre-increment form returns the new value of the variable, while the post-increment form returns the previous value of the variable.
+                                      let a = 1;
+  ++a;                                                                     a++;
+  2                                                                         1
+  2                   (once a is called this is whats returned              2
+both methods increment.  but ++a returns (RIGHT AWAY) new value.  While a++ (RIGHT AWAY)returns previous value
+
+
+
+
+
+Earlier, we said that you should always use blocks with if statements.
+A common exception to this rule occurs when using a continue, break, or return statement 
+as the if clause. When changing the flow with these three statements, the single-line 
+version of the if statement can make your code easier to read.
