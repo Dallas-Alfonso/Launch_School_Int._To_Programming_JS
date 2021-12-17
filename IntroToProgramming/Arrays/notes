@@ -81,3 +81,203 @@ let newArray = myArray.map(function(values){
     return 'odd';
   }
 })
+
+
+
+
+
+2. Log all of the even values from myArray to the console.
+
+let myArray = [1, 3, 6, 11, 4, 2,
+               4, 9, 17, 16, 0];
+
+Expected Output               
+6
+4
+2
+4
+16
+0
+
+myArray.forEach(function (value) {
+  if (value % 2 === 0) {
+    console.log(value);
+  }
+});
+
+
+
+3.  Let's make the problem a little harder. In this problem, we're again interested in even numbers, but this time the numbers are in nested arrays in a single outer array.
+
+Copy Code
+let myArray = [
+  [1, 3, 6, 11],
+  [4, 2, 4],
+  [9, 17, 16, 0],
+];
+
+
+myArray.forEach(function (arrayNumbers) {
+  arrayNumbers.forEach(function (numbersInArray) {
+    if (numbersInArray % 2 === 0) {
+      console.log(numbersInArray);
+    }
+  });
+});
+
+
+
+
+
+
+Let's try another variation on the even-numbers theme.
+
+We'll return to the simpler one-dimensional array. In this problem, we want to use the map function to create a new array that contains one element for each element in the original array. If the element is an even value, then the corresponding element in the new array should contain the string 'even'; otherwise, the element in the new array should contain 'odd'.
+
+Example
+
+let myArray = [
+  1, 3, 6, 11,
+  4, 2, 4, 9,
+  17, 16, 0,
+];
+
+Expected Output
+Copy Code
+[
+  'odd', 'odd', 'even', 'odd',
+  'even', 'even', 'even', 'odd',
+  'odd', 'even', 'even',
+]
+
+let newArray = myArray.map(function (numbers) {  REMEBER, MAP CREATES A NEW ARRAY.  NOTE HOW WE SAVE THIS NEW ARRAY TO VAR NNEW ARRAY
+  if (numbers % 2 === 0) {
+    return 'even';
+  } else {
+    return 'odd';
+  }
+});
+
+
+
+
+
+
+Write a findIntegers function that takes an array argument and returns an array that contains only the integers from the input array. Use the filter method in your function.
+
+  Example
+  
+  let things = [1, 'a', '1', 3, NaN, 3.1415, -4, null, false];
+  let integers = findIntegers(things);
+  console.log(integers); // => [1, 3, -4]
+   
+  You can use Number.isInteger(value) to determine whether a numeric value is an integer. It returns true if the value is an integer, false otherwise.
+
+
+
+  MY ANSWER
+  function findIntegers (things) {
+    things.filter(function (value) {
+      if (Number.isInteger(value)) {
+        return value
+      }
+    })
+  }
+
+  CORRECT ANSWER
+  function findIntegers(array) {                    
+    return array.filter(function(element) {       WHEN PAIRED WITH A FUNCTION. METHODS MUST BE RETURNED 1st!
+      return Number.isInteger(elemet);
+    });
+  }
+
+
+
+
+
+
+  Use map and filter to first determine the lengths of all the elements in 
+  an array of string values, then discard the even values (keep the odd values).
+
+    
+    let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
+    console.log(oddLengths(arr)); // => [1, 5, 3]
+
+    Note that it is possible to solve this problem without using map.
+    However, our intent is to show how you can combine multiple functions 
+    to achieve a desired result.
+    
+    Hint
+    Your first step should be to create an array of the lengths, e.g., [1, 4, 5, 3, 2].
+
+    function oddLengths (strings) {
+      let lengthOfStrings = stings.map((eachLetter) => eachLetter.length);
+      let mapTheStrings = lengthOfStrings.filter((letterss) => letters % 2 === 1);
+      return mapTheStrings;
+    }
+
+
+
+
+
+Use reduce to compute the sum of the squares of all of the 
+numbers in an array:
+
+let array = [3, 5, 7];
+console.log(sumOfSquares(array)); // => 83
+Note that 83 is 3*3 + 5*5 + 7*7.
+
+function sumOfSquares(numbers) {
+  return numbers.reduce((accumulator, number) => {
+    return accumulator + number * number;
+  }, 0);
+}
+
+
+This problem is more challenging than most in this book. 
+Don't worry if you can't solve it on your own.
+
+Write a function similar to the oddLengths function from 
+  Exercise 6, but don't use map or filter. Instead, try to use 
+  the reduce method.
+
+
+let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
+console.log(oddLengths(arr)); // => [1, 5, 3]
+
+Hint
+Use an array as the accumulator. Ideally, you should be able to use the return
+value of reduce as the return value of the function.
+
+Solution
+
+function oddLengths(strings) {
+  return strings.reduce((filteredNumbersArray, letters) => {          HERE FILTEREDNUMBERSARRAY is holding the data we are going to use.
+    let length = letters.length;                                      NOTE that this function will keep going until it iterates througout the WHOLE array
+    if (length % 2 === 1) {
+      filteredNumbersArray.push(length);
+    }
+
+    return filteredNumbersArray;
+  }, []);                                                              NOTE   We start filling up from empty ARRAY
+}
+
+let arr = ['a', 'abcd', 'abcde', 'abc', 'ab'];
+console.log(oddLengths(arr));
+
+RETURN [ 1, 5, 3 ]
+
+
+Without using a for, while, or do/while loop, write some code that 
+checks whether the number 3 appears inside these arrays:
+
+  
+  > let numbers1 = [1, 3, 5, 7, 9, 11];
+  > let numbers2 = [];
+  > let numbers3 = [2, 4, 6, 8];
+  Return true or false depending on each result.
+
+
+
+
+
