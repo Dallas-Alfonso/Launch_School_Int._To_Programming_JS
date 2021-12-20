@@ -1,0 +1,43 @@
+Modern versions of the standard (ES6+) do guarantee the iteration order for an object's property keys. However, this order is somewhat complex. The order is based on:
+
+the types of the property keys (strings come before symbols)
+the values of the keys (non-negative integers come first), and
+the order in which the keys were added to the object.
+
+It's tempting to rely on this predictable order, but the order isn't straightforward except in the simplest cases.
+
+In the end, it's not wise to make any assumptions about the iteration order for object property keys. You can't depend on it.
+
+
+
+
+
+Which of the following values are valid keys for an object?
+
+1                           Correct Answer... ALL OF THEM
+'1'               THIS      
+undefined
+'hello world'     THIS
+true
+'true'            THIS
+
+JavaScript coerces the non-string key values to strings
+
+
+
+
+
+
+Write some code to replace the value 6 in the following object with 606:
+
+Copy Code
+let obj = {
+  foo: { a: "hello", b: "world" },
+  bar: ["example", "mem", null, { xyz: 6 }, 88],
+  qux: [4, 8, 12]
+};
+
+You don't have to search the object. Just write an assignment that replaces the 6.
+
+
+obj.bar[3].xyz = 606
