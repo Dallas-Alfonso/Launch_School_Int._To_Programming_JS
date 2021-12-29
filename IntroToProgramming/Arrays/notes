@@ -281,3 +281,85 @@ checks whether the number 3 appears inside these arrays:
 
 
 
+  push appends elements to the end of the caller array, but it returns the array's updated length. Note that it does not return the modified array! 
+
+The concat method is similar to push, but it doesn't mutate the caller. It concatenates two arrays and returns a brand new array that contains all the elements from the original array followed by all of the arguments passed to it:
+
+Copy Code
+> array.concat(42, 'abc')
+= [ 1, 4, 3, 10, 'a', null, 'xyz', 42, 'abc' ]
+
+> array
+= [ 1, 4, 3, 10, 'a', null, 'xyz' ]
+
+
+The splice method lets you remove one or more elements from an array, even those that aren't at the end of the array:
+
+Copy Code
+> array.splice(3, 2)
+[ 10, 'a' ]
+
+> array
+= [ 1, 4, 3, null ]
+
+
+
+forEach works well when you want to use the values of an array's elements.
+ORIGINAL ARRAY GET MUTATED HERE
+
+vs
+MAP
+
+WHERE ORIGINAL IS KEPT, BUT A NEW ARRAY IS MADE WITH THE CHANGED VALUES
+
+
+forEach and map are important methods, but they can confuse beginners. The main thing to remember is that forEach performs simple iteration and returns undefined, while map transforms an array's elements and returns a NEW ARRAY with the transformed values.
+
+
+
+
+The filter method is another array iteration method. It returns a new array that includes all elements from the calling array for which the callback returns a truthy value. That's a mouthful. Some code should help clarify what filter does:
+
+Copy Code
+> let numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2]
+> numbers.filter(num => num > 4)
+= [ 5, 6, 7, 8, 9, 10 ]
+
+> numbers
+= [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 1, 2 ]
+
+filter doesn't mutate the caller.
+
+
+
+Here's an example with strings:
+
+Copy Code
+> let strings = ['a', 'b', 'c', 'd']
+> strings.reduce((accumulator, element) => {
+...   return accumulator + element.toUpperCase()
+... }, '');
+= 'ABCD'
+reduce does not mutate the caller. (It is possible that the callback might mutate the caller, but that's inadvisable, and not reduce's fault.)
+
+
+
+If you really need to detect whether a variable references an array, you need to use Array.isArray instead:
+
+Copy Code
+> let arr = [1, 2, 3]
+> Array.isArray(arr)
+= true
+
+
+
+INCLUDES
+The includes method determines whether an array includes a given element:
+
+Copy Code
+> let a = [1, 2, 3, 4, 5]
+> a.includes(2)
+= true
+
+> a.includes(10)
+= false
