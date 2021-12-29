@@ -41,3 +41,40 @@ You don't have to search the object. Just write an assignment that replaces the 
 
 
 obj.bar[3].xyz = 606
+
+
+
+most common methods 
+
+
+
+
+Object.keys
+The Object.keys static method returns an object's keys as an array. You can iterate over that array using any technique that works for arrays. 
+
+Object.values
+This static method extracts the values from every own property in an object to an array:
+
+let person = { name: 'Bob', age: 30, height: '6ft' };
+let personValues = Object.values(person);
+console.log(personValues); // => [ 'Bob', 30, '6ft' ]
+
+Object.entries
+While Object.keys and Object.values return the keys and values of an object, respectively, the Object.entries static method returns an array of nested arrays. Each nested array has two elements: one of the object's keys and its corresponding value:
+
+Copy Code
+let person = { name: 'Bob', age: 30, height: '6ft' };
+console.log(Object.entries(person)); // => [[ 'name', 'Bob' ], [ 'age', 30 ], [ 'height', '6ft' ]]
+
+Object.assign
+You may sometimes want to merge two or more objects, i.e., combine the key-value pairs into a single object. The Object.assign static method provides this functionality:
+
+Copy Code
+> let objA = { a: 'foo' }
+= undefined
+
+> let objB = { b: 'bar' }
+= undefined
+
+> Object.assign(objA, objB)
+= { a: 'foo', b: 'bar' }
